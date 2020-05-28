@@ -1,0 +1,288 @@
+<html>
+
+<head>
+    <!--<link href="https://unpkg.com/tailwindcss@%5E1.0/dist/tailwind.min.css" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FuzeScreen</title>
+</head>
+
+<body class="overflow-x-hidden">
+<div id="startfuze" class="relative bg-fuze-light overflow-hidden">
+    <div class="max-w-screen-xl mx-auto " x-data="{ open: false }" @keydown.window.escape="open = false">
+        <div class="relative z-10 pb-8 bg-fuze-light sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+            <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-fuze-light transform translate-x-1/2"
+                 fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="50,0 100,0 50,100 0,100"/>
+            </svg>
+
+            <div id="tophead" class="relative pt-6 px-4 sm:px-6 lg:px-8">
+                <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
+                    <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                        <div class="flex items-center justify-between w-full md:w-auto">
+                            <a href="#">
+                                <img class="h-8 w-auto sm:h-10 p-0 m-0" src="assets/FuzeScreen.svg"
+                                     alt=""/>
+                            </a>
+                            <div class="-mr-2 flex items-center md:hidden">
+                                <button type="button" @click="open = !open"
+                                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M4 6h16M4 12h16M4 18h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block md:ml-8 md:pr-4">
+                        <a href="#about"
+                           class="font-medium text-gray-200 hover:text-gray-100 focus:outline-none focus:text-gray-100 transition duration-150 ease-in-out">About</a>
+                        <a href="#team"
+                           class="ml-8 font-medium text-gray-200 hover:text-gray-100 focus:outline-none focus:text-gray-100 transition duration-150 ease-in-out">Team</a>
+                        <a href="https://beergrizzly.github.io/fuzescreen"
+                           class="ml-8 font-medium text-fuze-orange hover:text-fuze-orange focus:outline-none transition duration-150 ease-in-out">Start</a>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+                 @click.away="open = false" x-show="open"
+                 x-transition:enter="transition ease-out duration-100"
+                 x-transition:enter-start="transform opaity-0 scale-95"
+                 x-transition:enter-end="transform opacity-100 scale-100"
+                 x-transition:leave="transition ease-in duration-75"
+                 x-transition:leave-start="transform opacity-100 scale-100"
+                 x-transition:leave-end="transform opacity-0 scale-95">
+                <div class="rounded-lg shadow-md">
+                    <div class="rounded-lg bg-fuze-dark shadow-xs overflow-hidden">
+                        <div class="px-5 pt-4 flex items-center justify-between">
+                            <div>
+                                <img class="h-8 w-auto" src="assets/FuzeScreen.svg" alt=""/>
+                            </div>
+                            <div class="-mr-2">
+                                <button type="button" @click="open = !open"
+                                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="px-2 pt-2 pb-3">
+                            <a href="#about"
+                               class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-gray-100 focus:outline-none focus:text-gray-100 transition duration-150 ease-in-out">About</a>
+                            <a href="#team"
+                               class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-gray-100 focus:outline-none focus:text-gray-100 transition duration-150 ease-in-out">Team</a>
+                            <a href="https://beergrizzly.github.io/fuzescreen"
+                               class="block px-3 py-2 rounded-md text-base font-medium text-fuze-orange hover:text-fuze-orange focus:outline-none focus:text-gray-100 transition duration-150 ease-in-out">Start</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                <div class="sm:text-center lg:text-left">
+                    <h2
+                            class="text-4xl tracking-tight leading-10 font-extrabold text-fuze-orange sm:text-5xl sm:leading-none md:text-6xl">
+                        Sharing media
+                        <br class="xl:hidden"/>
+                        <span class="text-white">has never been easier</span>
+                    </h2>
+                    <p
+                            class="mt-3 text-base text-gray-200 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        FuzeScreen is the best tool to share your gallery and use multiple displays to showcase
+                        every type of media.
+                    </p>
+                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                        <div class="rounded-md shadow">
+                            <a href="#about"
+                               class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-fuze-orange focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                                Learn more
+                            </a>
+                        </div>
+                        <div class="mt-3 sm:mt-0 sm:ml-3">
+                            <a href="https://beergrizzly.github.io/fuzescreen"
+                               class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-fuze-orange bg-gray-100 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-indigo-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                                Get started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <div class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full flex bg-fuze-semidark items-center"
+             alt=""><img src="assets/Group_15_1.png" class="w-full md:p-20 lg:pl-24"></div>
+    </div>
+</div>
+<div id="about">
+    <div class="py-12 bg-fuze-dark">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h1 class="title text-center">About</h1>
+                </h3>
+                <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-300 lg:mx-auto">
+                    With FuzeScreen we want to make sharing your media like photos and videos easier. Thus multiple
+                    devices have access to a certain gallery.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <ul class="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
+                    <li>
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div
+                                        class="flex items-center text-center justify-center h-12 w-12 rounded-md bg-fuze-orange text-white">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-lg leading-6 font-medium text-white">Display extension</h5>
+                                <p class="mt-2 text-base leading-6 text-gray-300">
+                                    With this application you can extend the physical limits of your display by
+                                    connecting another device with our app.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mt-10 md:mt-0">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-fuze-orange text-white">
+                                    <i class="fas fa-share-square"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-lg leading-6 font-medium text-white">Media sharing</h5>
+                                <p class="mt-2 text-base leading-6 text-gray-300">
+                                    It is possible to share your photos and videos with other people all around the
+                                    globe.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mt-10 md:mt-0">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-fuze-orange text-white">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-lg leading-6 font-medium text-white">Room management</h5>
+                                <p class="mt-2 text-base leading-6 text-gray-300">
+                                    With our easy room management you can create a room within seconds and share it
+                                    with
+                                    others.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mt-10 md:mt-0">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-fuze-orange text-white">
+                                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h5 class="text-lg leading-6 font-medium text-white">Video Chat</h5>
+                                <p class="mt-2 text-base leading-6 text-gray-300">
+                                    It is also possible to have a video conference while you showcase the media
+                                    files
+                                    you uploaded.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="team" class="container mx-auto">
+    <h1 class="title text-center mb-4">Our Team</h1>
+    <div class="flex flex-wrap sm:flex-no-wrap -mx-2">
+        <div class="w-full sm:w-1/3 px-4 mb-6">
+            <div class="bg-fuze-light rounded-lg shadow-sm transition duration-200 hover:shadow-lg">
+                <div class="pt-10 px-20 sm:px-6 md:px-10 lg:px-24">
+                    <img src="assets/Felix.jpg" class="rounded-full shadow-md">
+                </div>
+                <p class="text-2xl font-bold text-gray-100 text-center mt-3">Felix Beer</p>
+                <p class="text-lg font-medium pb-8 -mt-1 text-gray-300 text-center">Project leader</p>
+            </div>
+        </div>
+        <div class="w-full sm:w-1/3 px-4 mb-6">
+            <div class="bg-fuze-light rounded-lg shadow-sm transition duration-200 hover:shadow-lg">
+                <div class="pt-10 px-20 sm:px-6 md:px-10 lg:px-24">
+                    <img src="assets/Lukas.jpg" class="rounded-full shadow-md">
+                </div>
+                <p class="text-2xl font-bold text-gray-100 text-center mt-3">Lukas Mayer</p>
+                <p class="text-lg font-medium pb-8 -mt-1 text-gray-300 text-center">Research & Development</p>
+            </div>
+        </div>
+        <div class="w-full sm:w-1/3 px-4 mb-6">
+            <div class="bg-fuze-light rounded-lg shadow-sm transition duration-200 hover:shadow-lg">
+                <div class="pt-10 px-20 sm:px-6 md:px-10 lg:px-24">
+                    <img src="assets/Gregor.jpg" class="rounded-full shadow-md">
+                </div>
+                <p class="text-2xl font-bold text-gray-100 text-center mt-3">Gregor David</p>
+                <p class="text-lg font-medium pb-8 -mt-1 text-gray-300 text-center">Research & Development</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container max-w-full bg-fuze-light p-8 ">
+    <div class="container mx-auto flex flex-row flex-wrap md:flex-no-wrap">
+        <div class="w-full md:w-2/5 flex justify-center items-center">
+            <img class="h-12 w-auto sm:h-16 p-0 m-0 mx-footer mb-2" src="assets/FuzeScreen.svg" alt=""/>
+        </div>
+        <ul class="text-gray-100 w-full md:w-1/6 flex justify-center items-center flex-col md:items-start md:justify-start mt-2">
+
+            <li class="text-fuze-orange font-bold uppercase tracking-wider">Website</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Team</a></li>
+
+        </ul>
+        <ul class="text-gray-100 w-full md:w-1/6 flex justify-center items-center flex-col md:items-start md:justify-start mt-2">
+            <li class="text-fuze-orange font-bold uppercase tracking-wider">Project</li>
+            <li><a href="https://beergrizzly.github.io/fuzescreen/">Get Started</a></li>
+            <li><a href="https://github.com/FuzeScreen"><i class="fab fa-github mr-1"></i>GitHub</a></li>
+        </ul>
+        <ul class="text-gray-100 w-full md:w-1/6 flex justify-center items-center flex-col md:items-start md:justify-start mt-2">
+
+            <li class="text-fuze-orange font-bold uppercase tracking-wider">Social</li>
+            <li><a href=""><i class="fab fa-instagram mr-1"></i> Instagram</a></li>
+            <li></i><a href=""><i class="fab fa-youtube mr-1"></i> Youtube</a></li>
+
+
+        </ul>
+        <ul class="text-gray-100 w-full md:w-1/6 flex justify-center items-center flex-col md:items-start md:justify-start mt-2">
+
+            <li class="text-fuze-orange font-bold uppercase tracking-wider">Guidelines</li>
+            <li><a href="https://beze.vision/impressum"> Impressum</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+
+
+        </ul>
+    </div>
+</div>
+<div class="flex justify-center text-center">
+    <p class="text-gray-300">©Copyright 2020 FuzeScreen</p>
+</div>
+</body>
